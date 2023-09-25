@@ -1,9 +1,18 @@
 data = []
+count = 0
 with open('reviews.txt','r') as r:
     for line in r:
         data.append(line)
-print(len(data))
-print(data[0])
-print('-'*100)
-print(data[1])
+        count += 1
+        if count % 100000 == 0:
+            print(len(data))
+print('檔案讀取完畢!共',len(data),'比留言!')
+sum_len = 0
+for d in data:
+    sum_len = sum_len + len(d)
+    avg = sum_len / len(data)
+print('留言平均的長度:',avg)
+
+
+
 
